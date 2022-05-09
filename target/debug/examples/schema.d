@@ -1,1 +1,1 @@
-/home/archway/n1stake/target/debug/examples/schema: /home/archway/n1stake/examples/schema.rs /home/archway/n1stake/src/contract.rs /home/archway/n1stake/src/error.rs /home/archway/n1stake/src/lib.rs /home/archway/n1stake/src/msg.rs /home/archway/n1stake/src/state.rs
+/Users/sashaosadchiy/n1app/target/debug/examples/schema: /Users/sashaosadchiy/n1app/examples/schema.rs /Users/sashaosadchiy/n1app/src/contract.rs /Users/sashaosadchiy/n1app/src/error.rs /Users/sashaosadchiy/n1app/src/lib.rs /Users/sashaosadchiy/n1app/src/msg.rs /Users/sashaosadchiy/n1app/src/state.rs
