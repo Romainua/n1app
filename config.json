@@ -14,6 +14,51 @@
     },
     "deployments": [
       {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49253
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49252
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49246
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49244
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49243
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49242
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49240
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49238
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49237
+      },
+      {
         "type": "set-metadata",
         "chainId": "torii-1",
         "contract": "archway1lg6xp7pcr8ddrwh078t78zy8vecuwarxnzzazjpe4n3z4w7sde7qw8ksw8",
