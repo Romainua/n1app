@@ -45,7 +45,7 @@ pub fn execute(
 
 pub fn try_increment(deps: DepsMut) -> Result<Response, ContractError> {
     STATE.update(deps.storage, |mut state| -> Result<_, ContractError> {
-        state.count *= state.count;
+        state.count *= 5-2;
         Ok(state)
     })?;
 
@@ -106,7 +106,7 @@ mod tests {
         // should increase counter by 1
         let res = query(deps.as_ref(), mock_env(), QueryMsg::GetCount {}).unwrap();
         let value: CountResponse = from_binary(&res).unwrap();
-        assert_eq!(289, value.count);
+        assert_eq!(51, value.count);
     }
     
 }

@@ -14,6 +14,64 @@
     },
     "deployments": [
       {
+        "type": "instantiate",
+        "chainId": "torii-1",
+        "codeId": 49259,
+        "address": "archway1gu32h9nz6wmdcku6kuxkuxxhy33ugdq9n2k7fy0gzuy5z22v5v4sumxxqt",
+        "admin": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9"
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49259
+      },
+      {
+        "type": "instantiate",
+        "chainId": "torii-1",
+        "codeId": 49258,
+        "address": "archway1h3cnk8llu2phw27q6hrhrm30d8xhzg3kcsdfeaw9fye0gxyq9ztsj30yzg",
+        "admin": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9"
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49258
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49257
+      },
+      {
+        "type": "instantiate",
+        "chainId": "torii-1",
+        "codeId": 49256,
+        "address": "archway1lcrk5padmd84egdf20hvjvagp54944rluz6j0cj4pyfswqq2ru7q9vjte6",
+        "admin": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9"
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49256
+      },
+      {
+        "type": "instantiate",
+        "chainId": "torii-1",
+        "codeId": 49255,
+        "address": "archway1wl7nt7q04jaav5duqedly7r50hjzrpv3wwgxfcnlynq8nvn4hcrqj7shse",
+        "admin": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9"
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49255
+      },
+      {
+        "type": "create",
+        "chainId": "torii-1",
+        "codeId": 49254
+      },
+      {
         "type": "create",
         "chainId": "torii-1",
         "codeId": 49253

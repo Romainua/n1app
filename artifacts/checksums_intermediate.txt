@@ -1,1 +1,1 @@
-ba98baf01ab27a64e3f4df5b974d38a7b4a485ded3f381413d2459a073c44d0a  ./target/wasm32-unknown-unknown/release/n1stake.wasm
+eec17bf13642241d1662d416799923e30b5927db885d3f1f1cb314a3a910a835  ./target/wasm32-unknown-unknown/release/n1stake.wasm
