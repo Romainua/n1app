@@ -208,161 +208,7 @@ export default class App extends Component {
     }
   }
 
- /**
-   * Increment the counter down
-   * @see {SigningCosmWasmClient}
-   * @see https://github.com/drewstaylor/archway-template/blob/main/src/contract.rs#L42
-   */
-  incrementCounterDown = async () => {
-    // SigningCosmWasmClient.execute: async (senderAddress, contractAddress, msg, fee, memo = "", funds)
-    if (!this.state.accounts) {
-      console.warn('Error getting accounts', this.state.accounts);
-      return;
-    } else if (!this.state.userAddress) {
-      console.warn('Error getting user address', this.state.userAddress);
-      return;
-    }
-    let loading;
-    loading = {
-      status: true,
-      msg: "Incrementing counter down..."
-    };
-    this.setState({ 
-      loadingStatus: loading.status,
-      loadingMsg: loading.msg
-    });
-    // Prepare Tx
-    let entrypoint = {
-      incrementbelow: {}
-    };
-    let txFee = calculateFee(8000000, this.state.gasPrice); // XXX TODO: Fix gas estimation (https://github.com/cosmos/cosmjs/issues/828)
-    console.log('Tx args', {
-      senderAddress: this.state.userAddress, 
-      contractAddress: this.state.contract, 
-      msg: entrypoint, 
-      fee: txFee
-    });
-    // Send Tx
-    try {
-      let tx = await this.state.cwClient.execute(this.state.userAddress, this.state.contract, entrypoint, txFee);
-      console.log('Below Tx', tx);
-      // Update Logs
-      if (tx.logs) {
-        if (tx.logs.length) {
-          tx.logs[0].type = 'incrementbelow';
-          tx.logs[0].timestamp = new Date().getTime();
-          this.setState({
-            logs: [JSON.stringify(tx.logs, null, 2), ...this.state.logs]
-          });
-        }
-      }
-      // Refresh counter
-      let counter = await this.getCount();
-      let count;
-      if (!isNaN(counter.count)) {
-        count = counter.count;
-      } else {
-        count = this.state.counter;
-        console.warn('Error expected numeric value from counter, found: ', typeof counter.count);
-      }
-      // Render updates
-      loading = {
-        status: false,
-        msg: ""
-      };
-      this.setState({
-        counter: count,
-        loadingStatus: loading.status,
-        loadingMsg: loading.msg
-      });
-    } catch (e) {
-      console.warn('Error exceuting Incrementbelow', e);
-      loading = {
-        status: false,
-        msg: ""
-      };
-      this.setState({
-        loadingStatus: loading.status,
-        loadingMsg: loading.msg
-      });
-    }
-  }
-
-  /**
-   * Reset counter to 0
-   * @see {SigningCosmWasmClient}
-   * @see https://github.com/drewstaylor/archway-template/blob/main/src/contract.rs#L43
-   */
-  resetCounter = async () => {
-    // SigningCosmWasmClient.execute: async (senderAddress, contractAddress, msg, fee, memo = "", funds)
-    if (!this.state.accounts) {
-      console.warn('Error getting user account', this.state.accounts);
-      return;
-    } else if (!this.state.userAddress) {
-      console.warn('Error getting user address', this.state.userAddress);
-      return;
-    }
-    let loading;
-    loading = {
-      status: true,
-      msg: "Resetting counter..."
-    };
-    this.setState({
-      loadingStatus: loading.status,
-      loadingMsg: loading.msg
-    });
-    // Prepare Tx
-    let entrypoint = {
-      reset: {
-        count: 1
-      }
-    };
-    let txFee = calculateFee(8000000, this.state.gasPrice); // XXX TODO: Fix gas estimation (https://github.com/cosmos/cosmjs/issues/828)
-    // Send Tx
-    try {
-      let tx = await this.state.cwClient.execute(this.state.userAddress, this.state.contract, entrypoint, txFee);
-      console.log('Reset Tx', tx);
-      // Update Logs
-      if (tx.logs) {
-        if (tx.logs.length) {
-          tx.logs[0].type = 'reset';
-          tx.logs[0].timestamp = new Date().getTime();
-          this.setState({
-            logs: [JSON.stringify(tx.logs, null, 2), ...this.state.logs]
-          });
-        }
-      }
-      // Refresh counter
-      let counter = await this.getCount();
-      let count;
-      if (!isNaN(counter.count)) {
-        count = counter.count;
-      } else {
-        count = this.state.counter;
-        console.warn('Error expected numeric value from counter, found: ', typeof counter.count);
-      }
-      // Render updates
-      loading = {
-        status: false,
-        msg: ""
-      };
-      this.setState({
-        counter: count,
-        loadingStatus: loading.status,
-        loadingMsg: loading.msg
-      });
-    } catch (e) {
-      console.warn('Error executing Reset', e);
-      loading = {
-        status: false,
-        msg: ""
-      };
-      this.setState({
-        loadingStatus: loading.status,
-        loadingMsg: loading.msg
-      });
-    }
-  }
+ 
 
   render() {
     // State
@@ -404,38 +250,21 @@ export default class App extends Component {
     }
 
     // Connected
-	let upcounter, downtrend, calmtrend = (counter > 0) ? 'BULLRUN, GO TO THE MOON 🚀 🚀 🚀' :
-    (counter < 0)? 'DOWNTREND, GO TO THE BOTTOM 🦞 🐡 🦀 🦑 🐠 🦐 🐙 🐟' :
-    'CALM 💤💤💤';
-            
+	
     return (
       <div className="content">
         <img src={logo} alt="logo" />
-	    <div>
-  
-	<h1 className="my-h1">Now is {upcounter} {downtrend} {calmtrend}</h1>
-  
-	</div>
+	    
         {/* Counter Status Display */}
         <div className="status-display">
           <ul className="status">
-           <li className="counter"><strong>Trend:</strong>&nbsp;{counter}</li>
+           <li className="counter"><strong>Count:</strong>&nbsp;{counter}</li>
           </ul>
-	<strong><small><p>If trend {'> 0'} now is Uptrand 📈</p></small></strong>
-	<strong><small><p>If trend {'< 0'} now is Downtrend 📉</p></small></strong>
 	</div>
-  <div className='faucetext'>
-  <p>Use the faucet to recive test tokens to your address</p>
-  <p> Your address: {userAddress}</p>
-  
-  </div>
         {/* Controls */}
         <div className="button-controls">
-         <button id="incrementer" className="upbutton" onClick={this.incrementCounter}>Uptrend</button>
-	       <button className="downbutton" onClick={this.incrementCounterDown}>Downtrend</button>
-         <form action="https://stakely.io/en/faucet/archway-testnet" method="get" target="_blank">
-         <button type="submit">FAUCET</button>
-    </form>
+         <button id="incrementer" className="upbutton" onClick={this.incrementCounter}>Growth</button>
+	       
         </div>
       
         {/* Loading */}
@@ -459,7 +288,7 @@ function Loading(msg) {
   }
   return (
     <div className="loading">
-      <p>Changing trend... Maybet here will be airdrop 🤫</p>
+      <p>Changing</p>
     </div>
   );
 }
