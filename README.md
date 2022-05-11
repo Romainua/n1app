@@ -1,3 +1,6 @@
+# This is second app with `--gas-rebate true`
+you can test here - http://46.4.114.116:42657/
+
 # Archway Network Starter Pack
 
 This is a template to build smart contracts in Rust to run inside a
