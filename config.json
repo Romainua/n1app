@@ -14,6 +14,17 @@
     },
     "deployments": [
       {
+        "type": "set-metadata",
+        "chainId": "torii-1",
+        "contract": "archway1gu32h9nz6wmdcku6kuxkuxxhy33ugdq9n2k7fy0gzuy5z22v5v4sumxxqt",
+        "contractMetadata": {
+          "developerAddress": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9",
+          "rewardAddress": "archway15r6pku8qg2cm5pujd0558lek7aa5r2hxpstdg9",
+          "collectPremium": false,
+          "gasRebate": true
+        }
+      },
+      {
         "type": "instantiate",
         "chainId": "torii-1",
         "codeId": 49259,
