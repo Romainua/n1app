@@ -1,6 +1,7 @@
 # This is second app with 
 `--gas-rebate true`
-you can test here - http://46.4.114.116:42657/
+you can test here - http://46.4.114.116:3001/
+
 
 # Archway Network Starter Pack
 
